@@ -1,0 +1,51 @@
+package br.com.grafica.calculadora.dominio.modelo
+
+data class OpcaoComparativoFornecedor(
+    val chaveOpcao: String,
+    val modalidade: ModalidadeProducao,
+    val fornecedorId: Long?,
+    val ofertaFornecedorId: Long?,
+    val titulo: String,
+    val precoBase: Double,
+    val quantidadeBase: Int,
+    val quantidadeMinima: Int,
+    val diasProducao: Int,
+    val acabamento: String,
+    val observacaoDivergenciaMaterial: String,
+    val precoAplicadoPorUnidadeOuLote: Double,
+    val descricaoFaixaAplicada: String,
+    val subtotalEstimado: Double,
+    val atendeQuantidadeMinima: Boolean
+)
+
+data class Orcamento(
+    val nomeProduto: String,
+    val materialEspecificacao: String,
+    val gramaturaEspecificacao: String,
+    val formatoEspecificacao: String,
+    val acabamentoEspecificacao: String,
+    val facesEspecificacao: String,
+    val modalidadeProducao: ModalidadeProducao,
+    val nomeFornecedor: String?,
+    val observacaoDivergenciaMaterial: String,
+    val modoPrecificacao: ModoPrecificacao,
+    val quantidadeSolicitada: Int,
+    val quantidadeEfetiva: Int,
+    val quantidadeMinimaExigida: Int,
+    val atendeQuantidadeMinima: Boolean,
+    val larguraMetros: Double,
+    val alturaMetros: Double,
+    val areaMetrosQuadrados: Double,
+    val precoUnitarioAplicado: Double,
+    val descricaoFaixaAplicada: String,
+    val subtotalItens: Double,
+    val diasProducaoNormal: Int,
+    val diasProducaoEfetivo: Int,
+    val dataEntregaPrevista: String,
+    val rotuloTaxaUrgencia: String?,
+    val valorTaxaUrgencia: Double,
+    val valorTaxaEntrega: Double,
+    val valorAdicionalNoturno: Double,
+    val totalTaxasAdicionais: Double,
+    val valorTotalFinal: Double
+)

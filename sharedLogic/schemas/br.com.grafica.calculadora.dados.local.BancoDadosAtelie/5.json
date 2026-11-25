@@ -1,0 +1,782 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "f52d04bbb526588d6810f33113e5f9a1",
+    "entities": [
+      {
+        "tableName": "clientes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nome` TEXT NOT NULL, `documento` TEXT NOT NULL, `telefone` TEXT NOT NULL, `criado_em` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "documento",
+            "columnName": "documento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefone",
+            "columnName": "telefone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criado_em",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_clientes_nome",
+            "unique": false,
+            "columnNames": [
+              "nome"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_clientes_nome` ON `${TABLE_NAME}` (`nome`)"
+          },
+          {
+            "name": "index_clientes_documento",
+            "unique": false,
+            "columnNames": [
+              "documento"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_clientes_documento` ON `${TABLE_NAME}` (`documento`)"
+          }
+        ]
+      },
+      {
+        "tableName": "produtos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nome` TEXT NOT NULL, `material_ou_papel` TEXT NOT NULL, `gramatura` TEXT NOT NULL, `formato_ou_tamanho` TEXT NOT NULL, `acabamento_padrao` TEXT NOT NULL, `opcoes_faces` TEXT NOT NULL, `modo_precificacao` TEXT NOT NULL, `aceita_producao_propria` INTEGER NOT NULL, `preco_base_propria` REAL NOT NULL, `quantidade_base_propria` INTEGER NOT NULL, `quantidade_minima_propria` INTEGER NOT NULL, `dias_producao_propria` INTEGER NOT NULL, `acabamento_propria` TEXT NOT NULL, `observacoes_propria` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "materialOuPapel",
+            "columnName": "material_ou_papel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gramatura",
+            "columnName": "gramatura",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formatoOuTamanho",
+            "columnName": "formato_ou_tamanho",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acabamentoPadrao",
+            "columnName": "acabamento_padrao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcoesFaces",
+            "columnName": "opcoes_faces",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modoPrecificacao",
+            "columnName": "modo_precificacao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "aceitaProducaoPropria",
+            "columnName": "aceita_producao_propria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "precoBasePropria",
+            "columnName": "preco_base_propria",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantidadeBasePropria",
+            "columnName": "quantidade_base_propria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantidadeMinimaPropria",
+            "columnName": "quantidade_minima_propria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasProducaoPropria",
+            "columnName": "dias_producao_propria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acabamentoPropria",
+            "columnName": "acabamento_propria",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "observacoesPropria",
+            "columnName": "observacoes_propria",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_produtos_nome",
+            "unique": false,
+            "columnNames": [
+              "nome"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_produtos_nome` ON `${TABLE_NAME}` (`nome`)"
+          }
+        ]
+      },
+      {
+        "tableName": "fornecedores",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nome` TEXT NOT NULL, `contato_ou_observacoes` TEXT NOT NULL, `dias_producao_padrao` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contatoOuObservacoes",
+            "columnName": "contato_ou_observacoes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasProducaoPadrao",
+            "columnName": "dias_producao_padrao",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_fornecedores_nome",
+            "unique": false,
+            "columnNames": [
+              "nome"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_fornecedores_nome` ON `${TABLE_NAME}` (`nome`)"
+          }
+        ]
+      },
+      {
+        "tableName": "ofertas_fornecedor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `produto_id` INTEGER NOT NULL, `fornecedor_id` INTEGER NOT NULL, `nome_fornecedor` TEXT NOT NULL, `preco_base` REAL NOT NULL, `quantidade_base` INTEGER NOT NULL, `quantidade_minima` INTEGER NOT NULL, `dias_producao` INTEGER NOT NULL, `acabamento` TEXT NOT NULL, `observacao_divergencia_material` TEXT NOT NULL, FOREIGN KEY(`produto_id`) REFERENCES `produtos`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`fornecedor_id`) REFERENCES `fornecedores`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "produtoId",
+            "columnName": "produto_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fornecedorId",
+            "columnName": "fornecedor_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomeFornecedor",
+            "columnName": "nome_fornecedor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "precoBase",
+            "columnName": "preco_base",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantidadeBase",
+            "columnName": "quantidade_base",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantidadeMinima",
+            "columnName": "quantidade_minima",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasProducao",
+            "columnName": "dias_producao",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acabamento",
+            "columnName": "acabamento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "observacaoDivergenciaMaterial",
+            "columnName": "observacao_divergencia_material",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_ofertas_fornecedor_produto_id",
+            "unique": false,
+            "columnNames": [
+              "produto_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ofertas_fornecedor_produto_id` ON `${TABLE_NAME}` (`produto_id`)"
+          },
+          {
+            "name": "index_ofertas_fornecedor_fornecedor_id",
+            "unique": false,
+            "columnNames": [
+              "fornecedor_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ofertas_fornecedor_fornecedor_id` ON `${TABLE_NAME}` (`fornecedor_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "produtos",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "produto_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "fornecedores",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "fornecedor_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "faixas_preco",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `produto_id` INTEGER NOT NULL, `oferta_fornecedor_id` INTEGER, `quantidade_minima` INTEGER NOT NULL, `quantidade_maxima` INTEGER, `preco_unitario_ou_faixa` REAL NOT NULL, `preco_por_lote_fechado` INTEGER NOT NULL, FOREIGN KEY(`produto_id`) REFERENCES `produtos`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "produtoId",
+            "columnName": "produto_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ofertaFornecedorId",
+            "columnName": "oferta_fornecedor_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "quantidadeMinima",
+            "columnName": "quantidade_minima",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantidadeMaxima",
+            "columnName": "quantidade_maxima",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "precoUnitarioOuFaixa",
+            "columnName": "preco_unitario_ou_faixa",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "precoPorLoteFechado",
+            "columnName": "preco_por_lote_fechado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_faixas_preco_produto_id",
+            "unique": false,
+            "columnNames": [
+              "produto_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_faixas_preco_produto_id` ON `${TABLE_NAME}` (`produto_id`)"
+          },
+          {
+            "name": "index_faixas_preco_oferta_fornecedor_id",
+            "unique": false,
+            "columnNames": [
+              "oferta_fornecedor_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_faixas_preco_oferta_fornecedor_id` ON `${TABLE_NAME}` (`oferta_fornecedor_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "produtos",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "produto_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "taxas_adicionais",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipo_taxa` TEXT NOT NULL, `nome` TEXT NOT NULL, `valor` REAL NOT NULL, `em_percentual` INTEGER NOT NULL, `prazo_limite_dias` INTEGER, `aplicar_apos_hora` INTEGER, `descricao` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoTaxa",
+            "columnName": "tipo_taxa",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valor",
+            "columnName": "valor",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "emPercentual",
+            "columnName": "em_percentual",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prazoLimiteDias",
+            "columnName": "prazo_limite_dias",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "aplicarAposHora",
+            "columnName": "aplicar_apos_hora",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "descricao",
+            "columnName": "descricao",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "pedidos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cliente_id` INTEGER, `nome_cliente` TEXT NOT NULL, `documento_cliente` TEXT NOT NULL, `telefone_cliente` TEXT NOT NULL, `produto_id` INTEGER, `nome_produto` TEXT NOT NULL, `especificacao_material` TEXT NOT NULL, `especificacao_gramatura` TEXT NOT NULL, `especificacao_formato` TEXT NOT NULL, `especificacao_acabamento` TEXT NOT NULL, `especificacao_faces` TEXT NOT NULL, `modalidade_producao` TEXT NOT NULL, `fornecedor_id` INTEGER, `nome_fornecedor` TEXT, `observacao_divergencia_material` TEXT NOT NULL, `modo_precificacao` TEXT NOT NULL, `quantidade` INTEGER NOT NULL, `largura_metros` REAL NOT NULL, `altura_metros` REAL NOT NULL, `descricao_faixa_aplicada` TEXT NOT NULL, `preco_unitario_aplicado` REAL NOT NULL, `subtotal_itens` REAL NOT NULL, `dias_prazo_producao` INTEGER NOT NULL, `data_prazo_entrega` TEXT NOT NULL, `metodo_entrega` TEXT NOT NULL, `nome_taxa_urgencia_aplicada` TEXT, `valor_taxa_urgencia_aplicada` REAL NOT NULL, `valor_taxa_entrega_aplicada` REAL NOT NULL, `valor_adicional_noturno_aplicado` REAL NOT NULL, `valor_total_taxas` REAL NOT NULL, `valor_total_final` REAL NOT NULL, `etapa_pipeline` TEXT NOT NULL, `status_pagamento` TEXT NOT NULL, `criado_em` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clienteId",
+            "columnName": "cliente_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "nomeCliente",
+            "columnName": "nome_cliente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "documentoCliente",
+            "columnName": "documento_cliente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefoneCliente",
+            "columnName": "telefone_cliente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "produtoId",
+            "columnName": "produto_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "nomeProduto",
+            "columnName": "nome_produto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "especificacaoMaterial",
+            "columnName": "especificacao_material",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "especificacaoGramatura",
+            "columnName": "especificacao_gramatura",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "especificacaoFormato",
+            "columnName": "especificacao_formato",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "especificacaoAcabamento",
+            "columnName": "especificacao_acabamento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "especificacaoFaces",
+            "columnName": "especificacao_faces",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modalidadeProducao",
+            "columnName": "modalidade_producao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fornecedorId",
+            "columnName": "fornecedor_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "nomeFornecedor",
+            "columnName": "nome_fornecedor",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "observacaoDivergenciaMaterial",
+            "columnName": "observacao_divergencia_material",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modoPrecificacao",
+            "columnName": "modo_precificacao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantidade",
+            "columnName": "quantidade",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "larguraMetros",
+            "columnName": "largura_metros",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alturaMetros",
+            "columnName": "altura_metros",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descricaoFaixaAplicada",
+            "columnName": "descricao_faixa_aplicada",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "precoUnitarioAplicado",
+            "columnName": "preco_unitario_aplicado",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subtotalItens",
+            "columnName": "subtotal_itens",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasPrazoProducao",
+            "columnName": "dias_prazo_producao",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataPrazoEntrega",
+            "columnName": "data_prazo_entrega",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "metodoEntrega",
+            "columnName": "metodo_entrega",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomeTaxaUrgenciaAplicada",
+            "columnName": "nome_taxa_urgencia_aplicada",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "valorTaxaUrgenciaAplicada",
+            "columnName": "valor_taxa_urgencia_aplicada",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valorTaxaEntregaAplicada",
+            "columnName": "valor_taxa_entrega_aplicada",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valorAdicionalNoturnoAplicado",
+            "columnName": "valor_adicional_noturno_aplicado",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valorTotalTaxas",
+            "columnName": "valor_total_taxas",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valorTotalFinal",
+            "columnName": "valor_total_final",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "etapaPipeline",
+            "columnName": "etapa_pipeline",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statusPagamento",
+            "columnName": "status_pagamento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criado_em",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_pedidos_etapa_pipeline",
+            "unique": false,
+            "columnNames": [
+              "etapa_pipeline"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_pedidos_etapa_pipeline` ON `${TABLE_NAME}` (`etapa_pipeline`)"
+          },
+          {
+            "name": "index_pedidos_status_pagamento",
+            "unique": false,
+            "columnNames": [
+              "status_pagamento"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_pedidos_status_pagamento` ON `${TABLE_NAME}` (`status_pagamento`)"
+          },
+          {
+            "name": "index_pedidos_nome_cliente",
+            "unique": false,
+            "columnNames": [
+              "nome_cliente"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_pedidos_nome_cliente` ON `${TABLE_NAME}` (`nome_cliente`)"
+          }
+        ]
+      },
+      {
+        "tableName": "configuracoes_atelie",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nome_proprietaria` TEXT NOT NULL, `mes_vigente` TEXT NOT NULL, `meta_mensal` REAL NOT NULL, `modo_estudio_ativo` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomeProprietaria",
+            "columnName": "nome_proprietaria",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mesVigente",
+            "columnName": "mes_vigente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "metaMensal",
+            "columnName": "meta_mensal",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modoEstudioAtivo",
+            "columnName": "modo_estudio_ativo",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f52d04bbb526588d6810f33113e5f9a1')"
+    ]
+  }
+}

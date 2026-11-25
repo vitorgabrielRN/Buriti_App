@@ -1,0 +1,1001 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "2218d9db8b71b7ee4a3ac5fc678d87fe",
+    "entities": [
+      {
+        "tableName": "clients",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `document` TEXT NOT NULL, `phone` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "document",
+            "columnName": "document",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_clients_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_clients_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_clients_document",
+            "unique": false,
+            "columnNames": [
+              "document"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_clients_document` ON `${TABLE_NAME}` (`document`)"
+          }
+        ]
+      },
+      {
+        "tableName": "product_presets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `category` TEXT NOT NULL, `paperType` TEXT NOT NULL, `defaultUnitPrice` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paperType",
+            "columnName": "paperType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultUnitPrice",
+            "columnName": "defaultUnitPrice",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "quotes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `clientId` INTEGER NOT NULL, `clientName` TEXT NOT NULL, `clientDocument` TEXT NOT NULL, `clientPhone` TEXT NOT NULL, `productCategory` TEXT NOT NULL, `paperType` TEXT NOT NULL, `isDoubleSided` INTEGER NOT NULL, `isColored` INTEGER NOT NULL, `unitPrice` REAL NOT NULL, `quantity` INTEGER NOT NULL, `bannerWidth` REAL NOT NULL, `bannerHeight` REAL NOT NULL, `totalPrice` REAL NOT NULL, `deliveryMethod` TEXT NOT NULL, `deliveryDate` TEXT NOT NULL, `paymentTerms` TEXT NOT NULL, `isClosedDeal` INTEGER NOT NULL, `statusTag` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, FOREIGN KEY(`clientId`) REFERENCES `clients`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientDocument",
+            "columnName": "clientDocument",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientPhone",
+            "columnName": "clientPhone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productCategory",
+            "columnName": "productCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paperType",
+            "columnName": "paperType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDoubleSided",
+            "columnName": "isDoubleSided",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isColored",
+            "columnName": "isColored",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unitPrice",
+            "columnName": "unitPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantity",
+            "columnName": "quantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bannerWidth",
+            "columnName": "bannerWidth",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bannerHeight",
+            "columnName": "bannerHeight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalPrice",
+            "columnName": "totalPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryMethod",
+            "columnName": "deliveryMethod",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryDate",
+            "columnName": "deliveryDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentTerms",
+            "columnName": "paymentTerms",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isClosedDeal",
+            "columnName": "isClosedDeal",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statusTag",
+            "columnName": "statusTag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_quotes_clientId",
+            "unique": false,
+            "columnNames": [
+              "clientId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_quotes_clientId` ON `${TABLE_NAME}` (`clientId`)"
+          },
+          {
+            "name": "index_quotes_statusTag",
+            "unique": false,
+            "columnNames": [
+              "statusTag"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_quotes_statusTag` ON `${TABLE_NAME}` (`statusTag`)"
+          },
+          {
+            "name": "index_quotes_clientName",
+            "unique": false,
+            "columnNames": [
+              "clientName"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_quotes_clientName` ON `${TABLE_NAME}` (`clientName`)"
+          },
+          {
+            "name": "index_quotes_clientDocument",
+            "unique": false,
+            "columnNames": [
+              "clientDocument"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_quotes_clientDocument` ON `${TABLE_NAME}` (`clientDocument`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "clients",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "clientId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "products",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `materialOrPaper` TEXT NOT NULL, `weightOrGrammage` TEXT NOT NULL, `formatOrSize` TEXT NOT NULL, `defaultFinish` TEXT NOT NULL, `sidesOptions` TEXT NOT NULL, `pricingMode` TEXT NOT NULL, `supportsInHouse` INTEGER NOT NULL, `inHouseBasePrice` REAL NOT NULL, `inHouseBaseQuantity` INTEGER NOT NULL, `inHouseMinQuantity` INTEGER NOT NULL, `inHouseProductionDays` INTEGER NOT NULL, `inHouseFinish` TEXT NOT NULL, `inHouseNotes` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "materialOrPaper",
+            "columnName": "materialOrPaper",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightOrGrammage",
+            "columnName": "weightOrGrammage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formatOrSize",
+            "columnName": "formatOrSize",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultFinish",
+            "columnName": "defaultFinish",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sidesOptions",
+            "columnName": "sidesOptions",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pricingMode",
+            "columnName": "pricingMode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supportsInHouse",
+            "columnName": "supportsInHouse",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inHouseBasePrice",
+            "columnName": "inHouseBasePrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inHouseBaseQuantity",
+            "columnName": "inHouseBaseQuantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inHouseMinQuantity",
+            "columnName": "inHouseMinQuantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inHouseProductionDays",
+            "columnName": "inHouseProductionDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inHouseFinish",
+            "columnName": "inHouseFinish",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inHouseNotes",
+            "columnName": "inHouseNotes",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_products_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_products_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ]
+      },
+      {
+        "tableName": "suppliers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `contactOrNotes` TEXT NOT NULL, `defaultProductionDays` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactOrNotes",
+            "columnName": "contactOrNotes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultProductionDays",
+            "columnName": "defaultProductionDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_suppliers_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_suppliers_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ]
+      },
+      {
+        "tableName": "product_supplier_offers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productId` INTEGER NOT NULL, `supplierId` INTEGER NOT NULL, `supplierNameSnapshot` TEXT NOT NULL, `basePrice` REAL NOT NULL, `baseQuantity` INTEGER NOT NULL, `minQuantity` INTEGER NOT NULL, `productionDays` INTEGER NOT NULL, `finish` TEXT NOT NULL, `materialDivergenceNote` TEXT NOT NULL, FOREIGN KEY(`productId`) REFERENCES `products`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`supplierId`) REFERENCES `suppliers`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productId",
+            "columnName": "productId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supplierId",
+            "columnName": "supplierId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supplierNameSnapshot",
+            "columnName": "supplierNameSnapshot",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "basePrice",
+            "columnName": "basePrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "baseQuantity",
+            "columnName": "baseQuantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "minQuantity",
+            "columnName": "minQuantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productionDays",
+            "columnName": "productionDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finish",
+            "columnName": "finish",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "materialDivergenceNote",
+            "columnName": "materialDivergenceNote",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_product_supplier_offers_productId",
+            "unique": false,
+            "columnNames": [
+              "productId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_product_supplier_offers_productId` ON `${TABLE_NAME}` (`productId`)"
+          },
+          {
+            "name": "index_product_supplier_offers_supplierId",
+            "unique": false,
+            "columnNames": [
+              "supplierId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_product_supplier_offers_supplierId` ON `${TABLE_NAME}` (`supplierId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "products",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "productId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "suppliers",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "supplierId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "price_tiers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productId` INTEGER NOT NULL, `supplierOfferId` INTEGER, `minQty` INTEGER NOT NULL, `maxQty` INTEGER, `unitOrTierPrice` REAL NOT NULL, `isPricePerBatch` INTEGER NOT NULL, FOREIGN KEY(`productId`) REFERENCES `products`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productId",
+            "columnName": "productId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supplierOfferId",
+            "columnName": "supplierOfferId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "minQty",
+            "columnName": "minQty",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maxQty",
+            "columnName": "maxQty",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "unitOrTierPrice",
+            "columnName": "unitOrTierPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPricePerBatch",
+            "columnName": "isPricePerBatch",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_price_tiers_productId",
+            "unique": false,
+            "columnNames": [
+              "productId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_price_tiers_productId` ON `${TABLE_NAME}` (`productId`)"
+          },
+          {
+            "name": "index_price_tiers_supplierOfferId",
+            "unique": false,
+            "columnNames": [
+              "supplierOfferId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_price_tiers_supplierOfferId` ON `${TABLE_NAME}` (`supplierOfferId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "products",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "productId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "additional_fees",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `feeType` TEXT NOT NULL, `name` TEXT NOT NULL, `value` REAL NOT NULL, `isPercentage` INTEGER NOT NULL, `thresholdDays` INTEGER, `triggerAfterHour` INTEGER, `description` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "feeType",
+            "columnName": "feeType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPercentage",
+            "columnName": "isPercentage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thresholdDays",
+            "columnName": "thresholdDays",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "triggerAfterHour",
+            "columnName": "triggerAfterHour",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "orders",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `clientId` INTEGER, `clientName` TEXT NOT NULL, `clientDocument` TEXT NOT NULL, `clientPhone` TEXT NOT NULL, `productId` INTEGER, `productName` TEXT NOT NULL, `materialSpec` TEXT NOT NULL, `grammageSpec` TEXT NOT NULL, `formatSpec` TEXT NOT NULL, `finishSpec` TEXT NOT NULL, `sidesSpec` TEXT NOT NULL, `productionMode` TEXT NOT NULL, `supplierId` INTEGER, `supplierName` TEXT, `materialDivergenceNote` TEXT NOT NULL, `pricingMode` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `widthMeters` REAL NOT NULL, `heightMeters` REAL NOT NULL, `appliedTierDescription` TEXT NOT NULL, `appliedUnitPrice` REAL NOT NULL, `itemsSubtotal` REAL NOT NULL, `productionDeadlineDays` INTEGER NOT NULL, `deliveryDeadlineDate` TEXT NOT NULL, `deliveryMethod` TEXT NOT NULL, `appliedUrgencyFeeName` TEXT, `appliedUrgencyFeeAmount` REAL NOT NULL, `appliedDeliveryFeeAmount` REAL NOT NULL, `appliedNightFeeAmount` REAL NOT NULL, `totalFeesAmount` REAL NOT NULL, `totalFinalPrice` REAL NOT NULL, `pipelineStage` TEXT NOT NULL, `paymentStatus` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientDocument",
+            "columnName": "clientDocument",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientPhone",
+            "columnName": "clientPhone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productId",
+            "columnName": "productId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "productName",
+            "columnName": "productName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "materialSpec",
+            "columnName": "materialSpec",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "grammageSpec",
+            "columnName": "grammageSpec",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formatSpec",
+            "columnName": "formatSpec",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finishSpec",
+            "columnName": "finishSpec",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sidesSpec",
+            "columnName": "sidesSpec",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productionMode",
+            "columnName": "productionMode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supplierId",
+            "columnName": "supplierId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "supplierName",
+            "columnName": "supplierName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "materialDivergenceNote",
+            "columnName": "materialDivergenceNote",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pricingMode",
+            "columnName": "pricingMode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantity",
+            "columnName": "quantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "widthMeters",
+            "columnName": "widthMeters",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightMeters",
+            "columnName": "heightMeters",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedTierDescription",
+            "columnName": "appliedTierDescription",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedUnitPrice",
+            "columnName": "appliedUnitPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "itemsSubtotal",
+            "columnName": "itemsSubtotal",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productionDeadlineDays",
+            "columnName": "productionDeadlineDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryDeadlineDate",
+            "columnName": "deliveryDeadlineDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryMethod",
+            "columnName": "deliveryMethod",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedUrgencyFeeName",
+            "columnName": "appliedUrgencyFeeName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "appliedUrgencyFeeAmount",
+            "columnName": "appliedUrgencyFeeAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedDeliveryFeeAmount",
+            "columnName": "appliedDeliveryFeeAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedNightFeeAmount",
+            "columnName": "appliedNightFeeAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalFeesAmount",
+            "columnName": "totalFeesAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalFinalPrice",
+            "columnName": "totalFinalPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pipelineStage",
+            "columnName": "pipelineStage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentStatus",
+            "columnName": "paymentStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_orders_pipelineStage",
+            "unique": false,
+            "columnNames": [
+              "pipelineStage"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_orders_pipelineStage` ON `${TABLE_NAME}` (`pipelineStage`)"
+          },
+          {
+            "name": "index_orders_paymentStatus",
+            "unique": false,
+            "columnNames": [
+              "paymentStatus"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_orders_paymentStatus` ON `${TABLE_NAME}` (`paymentStatus`)"
+          },
+          {
+            "name": "index_orders_clientName",
+            "unique": false,
+            "columnNames": [
+              "clientName"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_orders_clientName` ON `${TABLE_NAME}` (`clientName`)"
+          }
+        ]
+      },
+      {
+        "tableName": "app_settings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `ownerName` TEXT NOT NULL, `currentMonthLabel` TEXT NOT NULL, `monthlyGoal` REAL NOT NULL, `studioModeEnabled` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerName",
+            "columnName": "ownerName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentMonthLabel",
+            "columnName": "currentMonthLabel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monthlyGoal",
+            "columnName": "monthlyGoal",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "studioModeEnabled",
+            "columnName": "studioModeEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2218d9db8b71b7ee4a3ac5fc678d87fe')"
+    ]
+  }
+}
