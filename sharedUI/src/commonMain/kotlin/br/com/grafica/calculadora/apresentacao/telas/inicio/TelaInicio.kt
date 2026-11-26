@@ -82,19 +82,17 @@ fun TelaInicio(
                 }
             }
 
-            item {
-                CartaoAtalhosProducao(
-                    aoIrParaCalculadora = aoIrParaCalculadora,
-                    aoIrParaQuadro = aoIrParaQuadro,
-                    aoIrParaPedidos = aoIrParaPedidos,
-                    aoIrParaCadastros = aoIrParaCadastros
-                )
-            }
+//            item {
+//                CartaoAtalhosProducao(
+//                    aoIrParaCalculadora = aoIrParaCalculadora,
+//                    aoIrParaQuadro = aoIrParaQuadro,
+//                    aoIrParaPedidos = aoIrParaPedidos,
+//                    aoIrParaCadastros = aoIrParaCadastros
+//                )
+//            }
 
             //Gaveta demanda
 
-            item {
-            }
        
 
         }
@@ -139,12 +137,12 @@ private fun CabecalhoInicio(
                         .clickable { aoAlternarModoEstudio() }
                         .padding(horizontal = 10.dp, vertical = 4.dp)
                 ) {
-                    Text(
-                        text = "✨ Modo estúdio",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = CorDouradoTerciaria,
-                        fontWeight = FontWeight.SemiBold
-                    )
+//                    Text(
+//                        text = "✨ Modo estúdio",
+//                        style = MaterialTheme.typography.labelSmall,
+//                        color = CorDouradoTerciaria,
+//                        fontWeight = FontWeight.SemiBold
+//                    )
                 }
             }
 

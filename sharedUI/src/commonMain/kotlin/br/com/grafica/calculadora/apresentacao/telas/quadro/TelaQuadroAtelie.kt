@@ -42,13 +42,13 @@ fun TelaKanban(
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(2.dp)
         ) {
+//            Text(
+//                text = "Pipeline de produção",
+//                style = MaterialTheme.typography.labelLarge,
+//                color = MaterialTheme.colorScheme.onSurfaceVariant
+//            )
             Text(
                 text = "Pipeline de produção",
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Text(
-                text = "Fila de Demandas",
                 style = MaterialTheme.typography.displaySmall,
                 color = CorVinhoPrimaria,
                 fontWeight = FontWeight.Bold
