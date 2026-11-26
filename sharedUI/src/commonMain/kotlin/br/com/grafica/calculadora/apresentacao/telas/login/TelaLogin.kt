@@ -1,5 +1,6 @@
 package br.com.grafica.calculadora.apresentacao.telas.login
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,13 +29,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import br.com.grafica.calculadora.nucleo.tema.CoBranca
 import br.com.grafica.calculadora.nucleo.tema.CorBrancoSecundaria
 import br.com.grafica.calculadora.nucleo.tema.CorDouradoTerciaria
 import br.com.grafica.calculadora.nucleo.tema.CorPagamentoPendenteFundo
@@ -42,6 +44,9 @@ import br.com.grafica.calculadora.nucleo.tema.CorPagamentoPendenteTexto
 import br.com.grafica.calculadora.nucleo.tema.CorVinhoPrimaria
 import br.com.grafica.calculadora.nucleo.tema.CorVinhoProfundo
 import br.com.grafica.calculadora.nucleo.tema.TemaAtelie
+import calculadora.sharedui.generated.resources.Res
+import calculadora.sharedui.generated.resources.logo_colorida
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun TelaLogin(
@@ -70,17 +75,19 @@ fun TelaLogin(
                 color = CorDouradoTerciaria.copy(alpha = 0.2f),
                 shape = CircleShape
             ) {
-                Text(
-                    text = "✦ ATELIÊ PRINT",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = CorDouradoTerciaria,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp)
+
+                Image(
+                    painter = painterResource(Res.drawable.logo_colorida),
+                    contentDescription = "Logo do aplicativo",
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.size(100.dp)
                 )
+
+
             }
 
             Text(
-                text = if (estado.modoCadastro) "Criar conta do Ateliê" else "Acesse seu Ateliê",
+                text = if (estado.modoCadastro) "Criar conta do Buriti" else "Acesse sua grafica",
                 style = MaterialTheme.typography.headlineMedium,
                 color = CorBrancoSecundaria,
                 fontWeight = FontWeight.ExtraBold,
@@ -91,7 +98,7 @@ fun TelaLogin(
                 text = if (estado.modoCadastro)
                     "Configure seu perfil local para personalizar metas, faturamento e orçamentos."
                 else
-                    "Entre com seu e-mail/login e senha cadastrados neste dispositivo.",
+                    "Entre com seu e-mail/login e senha cadastrados.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = CorBrancoSecundaria.copy(alpha = 0.8f),
                 textAlign = TextAlign.Center
@@ -100,7 +107,7 @@ fun TelaLogin(
             Surface(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
-                color = CorBrancoSecundaria,
+                color = CoBranca,
                 tonalElevation = 6.dp,
                 shadowElevation = 10.dp
             ) {
@@ -198,9 +205,10 @@ fun TelaLogin(
                             )
                         } else {
                             Text(
-                                text = if (estado.modoCadastro) "Cadastrar e Entrar" else "Entrar no Ateliê",
-                                style = MaterialTheme.typography.titleSmall,
-                                fontWeight = FontWeight.Bold
+                                text = if (estado.modoCadastro) "Cadastrar e Entrar" else "Entrar na conta",
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = CorBrancoSecundaria,
                             )
                         }
                     }
@@ -213,7 +221,7 @@ fun TelaLogin(
                             text = if (estado.modoCadastro)
                                 "Já tem uma conta? Faça login"
                             else
-                                "Primeiro acesso? Criar conta do Ateliê",
+                                "Primeiro acesso? Criar conta",
                             color = CorVinhoPrimaria,
                             fontWeight = FontWeight.SemiBold
                         )

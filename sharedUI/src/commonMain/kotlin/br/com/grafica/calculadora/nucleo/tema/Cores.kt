@@ -22,7 +22,7 @@ val CorSuperficieCartao = Color(0xFFFFFFFF)
 val CorTextoEscuro = Color(0xFF1F1A1D)
 val CorContornoSutil = Color(0xFFD8CFD4)
 
-val CoBranca = Color(0xFFF3EDF1)
+val CoBranca = Color(0xFFE6E6E6)
 val CorCabecalhoTabela = Color(0xFFEEF2F6)
 
 val marrom =  Color(0xFF4E444B)

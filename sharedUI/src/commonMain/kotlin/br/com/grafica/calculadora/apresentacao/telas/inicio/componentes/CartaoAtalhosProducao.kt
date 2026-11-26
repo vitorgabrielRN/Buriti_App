@@ -52,7 +52,7 @@ fun CartaoAtalhosProducao(
             )
             AtalhoProducaoItem(
                 icone = "📋",
-                titulo = "Demandas",
+                titulo = "Kanban",
                 aoClicar = aoIrParaQuadro,
                 modifier = Modifier.weight(1f)
             )

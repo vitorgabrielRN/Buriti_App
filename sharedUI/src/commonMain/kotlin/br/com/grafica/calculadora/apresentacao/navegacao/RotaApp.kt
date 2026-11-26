@@ -25,7 +25,7 @@ enum class AbaNavegacao(
     val icone: ImageVector
 ) {
     INICIO("Início", Icons.Rounded.Home),
-    KANBAN("Demandas", Icons.Rounded.Dashboard),
+    KANBAN("Kanban", Icons.Rounded.Dashboard),
     PEDIDOS("Pedidos", Icons.Rounded.Receipt),
 
     ORCAMENTO("Orçar", Icons.Rounded.Calculate),
